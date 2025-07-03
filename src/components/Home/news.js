@@ -38,7 +38,7 @@ const News = () => {
           <a key={index} className="block group" href={item.link}>
             <div className="flex items-center mb-[11px]">
               <div className="bg-gray-500 rounded-full w-[3px] h-[3px] mr-[6px]" />
-              <span className="uppercase text-gray-500">{item.category}</span>
+              {/* <span className="uppercase text-gray-500">{item.category}</span> */}
             </div>
             <p className="text-heading-4 font-chivo font-bold inline-block mb-[26px]">
               {item.title}

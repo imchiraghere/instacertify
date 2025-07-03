@@ -1,7 +1,10 @@
 import { STRATEGY_DATA } from "@/utills/const";
 import Link from "next/link";
+import { useState } from "react";
 
 const Strategy = () => {
+  const [hovered, setHovered] = useState(null);
+
   return (
     <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0 lg:mt-[100px]">
       <div className="text-center mb-[70px]">
@@ -9,14 +12,18 @@ const Strategy = () => {
           Our Services
         </h2>
         <p className="text-quote md:text-lead-lg text-gray-600 mx-auto max-w-[976px]">
-          We work with more than 200 certified experts and laboratories to present reliable solutions for the required testing, such as the BIS, ASTM, IS, and ISO standards.
+          We work with more than 200 certified experts and laboratories to
+          present reliable solutions for the required testing, such as the BIS,
+          ASTM, IS, and ISO standards.
         </p>
       </div>
 
       <div className="lg:flex lg:gap-5 xl:gap-[30px]">
-        {STRATEGY_DATA.map((item, index) => (
+        {STRATEGY_DATA?.map((item, index) => (
           <div
             key={index}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
             className={`rounded-2xl p-[30px] md:py-[53px] md:px-[48px] relative mb-5 flex flex-col justify-between transition-all duration-300 hover:translate-y-[-2px] ${item.bgClass}`}
           >
             <div>
@@ -28,7 +35,9 @@ const Strategy = () => {
               <h2 className="font-bold font-chivo text-[28px] leading-[32px] md:text-heading-2 mb-[30px]">
                 {item.title}
               </h2>
-              <p className="text-excerpt text-gray-600 mb-[30px]">{item.description}</p>
+              <p className="text-excerpt text-gray-600 mb-[30px]">
+                {item.description}
+              </p>
             </div>
             <button type="button">
               <Link
@@ -40,6 +49,11 @@ const Strategy = () => {
                 </span>
                 <i>
                   <img
+                    style={{
+                      transform:
+                        hovered === index ? "translateX(8px)" : "translateX(0)",
+                      transition: "transform 0.3s ease",
+                    }}
                     className="ml-[7px] w-[12px] filter-black group-hover:filter-white"
                     src="/assets/images/icons/icon-right.svg"
                     alt="arrow right icon"

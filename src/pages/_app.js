@@ -5,6 +5,9 @@ import "@/styles/globals.css";
 import "../../public/assets/styles/app.min.css";
 import "../../public/assets/styles/tailwind.min.css";
 import WelcomePopup from "@/components/Layout/welcome-popup";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 export default function App({ Component, pageProps }) {
   return (

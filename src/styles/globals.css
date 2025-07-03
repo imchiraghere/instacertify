@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+
+.slick-dots li button:before {
+  margin-top: 20px;
+  font-size: 10px !important; /* default is 6px */
+  color: #000; /* change dot color if needed */
+  opacity: 0.25;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  font-size: 12px !important;
+  color: #ec691f !important; /* active dot color */
+  opacity: 1;
+}

@@ -11,6 +11,13 @@ const BackToTop = () => {
     return () => window.removeEventListener("scroll", toggleVisible);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       id="backToTop"
@@ -18,12 +25,13 @@ const BackToTop = () => {
         visible ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
-      <a
-        href="#top"
+      <button
+        onClick={scrollToTop}
         className="rounded-full bg-green-900 grid place-items-center w-[48px] h-[48px]"
+        aria-label="Scroll to top"
       >
         <img src="/assets/images/icons/icon-up.svg" alt="to top icon" />
-      </a>
+      </button>
     </div>
   );
 };
