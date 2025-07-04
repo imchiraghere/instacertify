@@ -3,88 +3,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import AnimatedButton from "../AnimatedButton";
 
-const menu = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "About Us",
-    href: "/about-us",
-  },
-  {
-    label: "Certification",
-    href: "/",
-    children: [
-      {
-        label: "America",
-        href: "/about-1.html",
-        children: [
-          { label: "Brazil", href: "#" },
-          { label: "Mexico", href: "#" },
-          { label: "United States & Canada", href: "#" },
-        ],
-      },
-      { label: "Asia Pacific", href: "/about-2.html" },
-      {
-        label: "EMEA",
-        href: "#",
-        children: [
-          { label: "Africa", href: "#" },
-          {
-            label: "Europe",
-            href: "#",
-          },
-          {
-            label: "Africa",
-            href: "#",
-            children: [
-              { label: "Egypt", href: "#" },
-              { label: "Kenya/KEBS", href: "#" },
-              { label: "South Africa/NRCS", href: "#" },
-            ],
-          },
-        ],
-      },
-      { label: "Global", href: "/about-3.html" },
-    ],
-  },
-  {
-    label: "Product Testing",
-    href: "/",
-    children: [
-      { label: "Chemicals", href: "/blog-1.html" },
-      {
-        label: "Electronics & Electricals",
-        href: "/blog-1.html",
-      },
-      { label: "Food & Water", href: "/blog-1.html" },
-      { label: "Lightning", href: "/blog-1.html" },
-      { label: "MSDS", href: "/blog-1.html" },
-      { label: "REACH", href: "/blog-1.html" },
-      { label: "ROHS", href: "/blog-1.html" },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "/",
-    children: [
-      {
-        label: "Industry Events",
-        href: "/about-1.html",
-      },
-      {
-        label: "News",
-        href: "/about-2.html",
-      },
-      {
-        label: "Standards",
-        href: "/about-2.html",
-      },
-    ],
-  },
-];
-
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -135,12 +53,10 @@ const Header = () => {
     } else if (level === 2) {
       submenuStyle.top = 0;
       submenuStyle.left = "100%";
-      // submenuStyle.transform = hovered ? "translateX(50px)" : "translateX(10px)";
       submenuStyle.transition += ", transform 0.3s ease";
     } else if (level >= 3) {
       submenuStyle.top = 0;
       submenuStyle.right = "100%";
-      // submenuStyle.transform = hovered ? "translateX(50px)" : "translateX(10px)";
       submenuStyle.transition += ", transform 0.3s ease";
     }
 
@@ -156,7 +72,6 @@ const Header = () => {
           cursor: "pointer",
           fontFamily: "Chivo, sans-serif",
           fontSize: level === 0 ? "18px" : "15px",
-          // fontWeight: level === 0 ? 600 : 500,
         }}
       >
         <Link
@@ -165,8 +80,6 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             gap: "6px",
-            // textDecoration: "none",
-            // color: "#111",
             userSelect: "none",
             color: hovered ? "#ec691f" : "",
           }}
@@ -192,7 +105,6 @@ const Header = () => {
                 width: "9px",
                 height: "9px",
                 marginLeft: "auto",
-
                 transition: "transform 0.3s ease",
               }}
             />
@@ -212,23 +124,8 @@ const Header = () => {
 
   const InlineMenu = () => {
     return (
-      <nav
-        style={{
-          position: "relative",
-          zIndex: 999,
-          padding: "10px 20px",
-          fontFamily: "Chivo, sans-serif",
-        }}
-      >
-        <ul
-          style={{
-            display: "flex",
-            gap: "30px",
-            margin: 0,
-            padding: 0,
-            listStyle: "none",
-          }}
-        >
+      <nav className="header-menu">
+        <ul className="header-menu-list">
           {HEADER_SLUG?.map((item, index) => (
             <MenuItem item={item} key={index} />
           ))}
@@ -249,297 +146,13 @@ const Header = () => {
           <Link className="flex" href="/">
             <img
               className="logo z-50 w-[90px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
-              src={isSticky ? "/assets/img/sodag.svg":"/assets/img/sad.svg"}
+              src={isSticky ? "/assets/img/sodag.svg" : "/assets/img/sad.svg"}
               alt="logo image"
             />
           </Link>
-          {/* <nav className="z-50 absolute hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:block">
-            <ul className="navbar flex flex-col justify-center font-chivo gap-[34px] lg:flex-row">
-              <li className="flex items-center group">
-                <Link
-                  className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]"
-                  href={PAGE_SLUG.HOME}
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="flex items-center group">
-                <Link
-                  className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]"
-                  href={PAGE_SLUG.ABOUT_US}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li class="flex items-center group">
-                <Link
-                  class="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]"
-                  href="/"
-                >
-                  Certification
-                </Link>
-                <i>
-                  <img
-                    class="icon-caret group-hover:filter-green"
-                    src="./assets/images/icons/icon-caret.svg"
-                    alt="caret"
-                  />
-                </i>
-                <ul className="menu-child translate-y-4 opacity-0 bg-white top-full z-50 py-2 grid menu-shadow -translate-x-6 translate-y-8 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto lg:absolute rounded-[4px] group-hover:grid group-hover:opacity-100 before:content-[''] before:block before:absolute before:w-full before:h-12 before:top-[-35px] before:left-0 grid-cols-1 w-[185px]">
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab1"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-1.html"
-                    >
-                      <span className="whitespace-nowrap">America</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab2"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-2.html"
-                    >
-                      <span className="whitespace-nowrap">Asia Pacific</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab2"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-2.html"
-                    >
-                      <span className="whitespace-nowrap">EMEA</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab3"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-3.html"
-                    >
-                      <span className="whitespace-nowrap">Global</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="flex items-center group relative">
-                <Link
-                  className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px] flex items-center"
-                  href="/"
-                >
-                  Product Testing
-                </Link>
-                <i>
-                  <img
-                    className="icon-caret group-hover:filter-green"
-                    src="./assets/images/icons/icon-caret.svg"
-                    alt="caret"
-                  />
-                </i>
-                <ul className="menu-child translate-y-4 opacity-0 bg-white top-full z-50 py-2 grid menu-shadow -translate-x-6 translate-y-8 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto lg:absolute rounded-[4px] group-hover:grid group-hover:opacity-100 before:content-[''] before:block before:absolute before:w-full before:h-12 before:top-[-35px] before:left-0 grid-cols-1 w-[185px]">
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">Chemicals</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center justify-between text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">
-                        Electronics & Electricals
-                      </span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">Food & Water</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">Lightning</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">MSDS</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">REACH</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="b1"
-                  >
-                    <Link
-                      className="flex items-center text-[14px]"
-                      href="/blog-1.html"
-                    >
-                      <span className="whitespace-nowrap">ROHS</span>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="flex items-center group">
-                <Link
-                  class="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]"
-                  href="/"
-                >
-                  Resources
-                </Link>
-                <i>
-                  <img
-                    class="icon-caret group-hover:filter-green"
-                    src="./assets/images/icons/icon-caret.svg"
-                    alt="caret"
-                  />
-                </i>
-                <ul className="menu-child translate-y-4 opacity-0 bg-white top-full z-50 py-2 grid menu-shadow -translate-x-6 translate-y-8 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto lg:absolute rounded-[4px] group-hover:grid group-hover:opacity-100 before:content-[''] before:block before:absolute before:w-full before:h-12 before:top-[-35px] before:left-0 grid-cols-1 w-[185px]">
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab1"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-1.html"
-                    >
-                      <span className="whitespace-nowrap">Industry Events</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab2"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-2.html"
-                    >
-                      <span className="whitespace-nowrap">News</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li
-                    className="menu-child-item font-chivo group transition-all duration-200 py-[10px] px-[22px] hover:filter-green hover:pl-[25px] hover:opacity-100"
-                    data-menu="ab2"
-                  >
-                    <a
-                      className="flex items-center justify-between text-[14px]"
-                      href="/about-2.html"
-                    >
-                      <span className="whitespace-nowrap">Standards</span>
-                      <img
-                        className="opacity-40 w-[12px] h-[12px] mr-[8px] -translate-y-[1px]"
-                        src="./assets/images/icons/icon-arrow-right.svg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav> */}
           <InlineMenu />
 
           <div className="hidden xl:block">
-            {/* <Link
-              className="flex items-center inline-block z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px] bg-gray-100 text-gray-900 hover:bg-gray-900 hover:text-white hover:-translate-y-[2px] hidden lg:flex"
-              href={PAGE_SLUG.CONTACT_US}
-            >
-              <span className="block text-inherit w-full h-full rounded-[50px] text-heading-6 font-bold font-chivo">
-                Contact Us
-              </span>
-              <i>
-                <img
-                  className="ml-[7px] w-[12px] filter-black group-hover:filter-white transition-transform duration-300 transform group-hover:translate-x-[4px]"
-                  src="./assets/images/icons/icon-right.svg"
-                  alt="arrow right icon"
-                />
-              </i>
-            </Link> */}
             <AnimatedButton title="Contact Us" href={"/contact-us"} />
           </div>
         </div>

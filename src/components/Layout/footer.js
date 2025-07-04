@@ -190,92 +190,27 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          {/* <div className="flex items-center justify-center gap-5 mt-5 lg:mt-0">
-                        <a
-                            href="/"
-                            className="w-10 h-10 bg-[#328c91] text-white rounded-full flex items-center justify-center text-[16px] transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-                        >
-                            <FaFacebookF />
-                        </a>
-                        <a
-                            href="/"
-                            className="w-10 h-10 bg-[#328c91] text-white rounded-full flex items-center justify-center text-[16px] transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-                        >
-                            <FaPinterest />
-                        </a>
-                        <a
-                            href="/"
-                            className="w-10 h-10 bg-[#328c91] text-white rounded-full flex items-center justify-center text-[16px] transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-                        >
-                            <FaTwitter />
-                        </a>
-                        <a
-                            href="/"
-                            className="w-10 h-10 bg-[#328c91] text-white rounded-full flex items-center justify-center text-[16px] transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-                        >
-                            <FaLinkedinIn />
-                        </a>
-                    </div> */}
           <div className="flex items-center justify-center gap-5 mt-5 lg:mt-0">
             <Link
-              className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
+              className="social-icon"
               href="https://www.facebook.com/share/15NtSiGZq8/?mibextid=wwXIfr"
             >
-              {/* <FaFacebookF className=" " /> */}
-              <img
-                className="h-full w-full object-cover"
-                src="./assets/images/icons/icon-facebook-green.svg"
-                alt="facebook icon"
-              />
+              <FaFacebookF />
             </Link>
             <Link
-              className="w-8 h-8 flex items-center justify-center transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-              href="https://x.com/instacertify?s=11"
-            >
-              {/* <img
-                className="h-full w-full object-cover"
-                src="./assets/images/icons/icon-instagram-green.svg"
-                alt="instagram icon"
-              /> */}
-              <span
-                style={{
-                  backgroundColor: "#338a92",
-                  padding: 5,
-                  borderRadius: 50,
-                }}
-              >
-                <FaXTwitter size={22} color="#fff" />
-              </span>
-            </Link>
-
-            <Link
-              className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
+              className="social-icon"
               href="https://www.linkedin.com/company/instacertify"
             >
-              <img
-                className="h-full w-full object-cover"
-                src="./assets/images/icons/icon-linkedin-green.svg"
-                alt="linkedin icon"
-              />
+              <FaLinkedinIn />
             </Link>
             <Link
-              className="w-8 h-8 flex items-center justify-center transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
-              href="https://pin.it/37GLjxHab"
+              className="social-icon"
+              href="https://x.com/instacertify?s=11"
             >
-              {/* <img
-                className="h-full w-full object-cover"
-                src="./assets/images/icons/icon-instagram-green.svg"
-                alt="instagram icon"
-              /> */}
-              <span
-                style={{
-                  backgroundColor: "#338a92",
-                  padding: 5,
-                  borderRadius: 50,
-                }}
-              >
-                <FaPinterest size={22} color="#fff" />
-              </span>
+              <FaXTwitter />
+            </Link>
+            <Link className="social-icon" href="https://pin.it/37GLjxHab">
+              <FaPinterest />
             </Link>
           </div>
         </div>

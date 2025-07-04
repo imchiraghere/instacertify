@@ -599,3 +599,89 @@ input:checked~.dot {
   animation: marqueeUp 10s linear infinite;
 }
 
+.social-icon {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ec6a20; 
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+  transform: translateY(-4px);
+}
+
+
+/* ------------cookies------------- */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #2f2f2f;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  z-index: 10000;
+  font-family: 'Inter', sans-serif;
+}
+
+.cookie-text {
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.cookie-link {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  background-color: #e86e1f;
+  color: white;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cookie-btn:hover {
+  opacity: 0.9;
+}
+
+.header-menu {
+  position: relative;
+  z-index: 999;
+  padding: 10px 20px;
+  font-family: "Chivo", sans-serif;
+}
+
+.header-menu-list {
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-menu {
+    display: none;
+  }
+}
