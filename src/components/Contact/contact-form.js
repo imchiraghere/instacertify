@@ -34,16 +34,63 @@ const ContactForm = () => {
                 LMPC Consultant
               </p>
             </div>
-            <p className="text-text text-gray-600">A-34, Sector 63 A, Noida,</p>
-            <p className="text-text text-gray-600 mb-[10px] md:mb-[16px]">
-              Chotpur, Uttar Pradesh 201307
-            </p>
-            <p className="text-text text-gray-600 underline">
-              (+91) 9999118039{" "}
-            </p>
-            <p className="text-text text-gray-600 underline">
-              contact@instacertify.com
-            </p>
+            <div className="flex gap-1 text-text mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-map-pin-house-icon lucide-map-pin-house"
+              >
+                <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
+                <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
+                <path d="M18 22v-3" />
+                <circle cx="10" cy="10" r="3" />
+              </svg>{" "}
+              {/* A-34, Sector 63 A, Noida, Gautam Buddh Nagar, Uttar Pradesh 201301 Delhi NCR  -India <br /> */}
+              A-34, Sector 63 A, Noida, <br />
+              Gautam Buddh Nagar, Uttar Pradesh 201307
+            </div>
+            <div className="flex items-center gap-1 text-text mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-phone-icon lucide-phone"
+              >
+                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+              </svg>
+              +91 9999118039
+            </div>
+            <div className="flex items-center gap-1 text-text mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail"
+              >
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg>
+              Contact@instacertify.com
+            </div>
           </div>
           <form className="flex-1" action="/">
             <div className="flex flex-col gap-6 mb-6 lg:flex-row xl:gap-[30px]">

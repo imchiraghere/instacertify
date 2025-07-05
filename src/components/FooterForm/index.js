@@ -26,7 +26,7 @@ const EnquiryForm = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(to right, #e8efe5, #ec691f)",
+        background: "linear-gradient(to right, #e8efe5)",
         padding: "30px 20px",
         borderRadius: "8px",
       }}

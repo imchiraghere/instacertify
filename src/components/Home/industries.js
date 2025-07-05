@@ -1,23 +1,13 @@
-import React from "react";
-import {
-  Gamepad2,
-  Code,
-  Atom,
-  Wrench,
-  Cpu,
-  Sparkles,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
-import { TABDATA } from "@/utills/const";
+import React, { useEffect, useState } from "react";
+import { Gamepad2, Code, Recycle, Wrench, Zap, Sparkles } from "lucide-react";
 
 // Icon mapping for each industry
-const INDUSTRY_ICONS = {
+const industryIcons = {
   Toys: Gamepad2,
   Software: Code,
-  "Polymers & Platics": Atom,
+  "Polymers & Plastics": Recycle,
   "Metal & Alloys": Wrench,
-  Electronic: Cpu,
+  Electronic: Zap,
   Cosmetics: Sparkles,
 };
 
@@ -25,129 +15,167 @@ const INDUSTRY_ICONS = {
 const INDUSTRY_THEMES = {
   Toys: "toys-theme",
   Software: "software-theme",
-  "Polymers & Platics": "polymers-theme",
+  "Polymers & Plastics": "polymers-theme",
   "Metal & Alloys": "metal-theme",
   Electronic: "electronic-theme",
   Cosmetics: "cosmetics-theme",
 };
 
 const IndustryCard = () => {
+  const [columns, setColumns] = useState(1); // Default to 1 column
+
+  useEffect(() => {
+    const getColumnCount = () => {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3;
+      if (width >= 768) return 2;
+      return 1;
+    };
+
+    const updateColumns = () => {
+      setColumns(getColumnCount());
+    };
+
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
   return (
-    <section className="industry-section">
-      {/* Background Elements */}
-      <div className="bg-decorations">
-        <div className="bg-dot bg-dot-1"></div>
-        <div className="bg-dot bg-dot-2"></div>
-        <div className="bg-dot bg-dot-3"></div>
-        <div className="bg-dot bg-dot-4"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header Section */}
-        <div className="header-section">
-          <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
-            Industries We Serve
+    <section style={{ padding: "5rem 0", backgroundColor: "#ffffff" }}>
+      <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
+        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <h2
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: "bold",
+              color: "#1f2937",
+              marginBottom: "1rem",
+            }}
+          >
+            Industries We <span style={{ color: "#f97316" }}>Serve</span>
           </h2>
-
-          <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
-            Delivering excellence across diverse sectors with specialized
-            expertise and innovative solutions
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#4b5563",
+              maxWidth: "32rem",
+              margin: "0 auto",
+            }}
+          >
+            Comprehensive certification solutions across diverse industries
           </p>
-
-          {/* Decorative Line */}
-          {/* <div className="decorative-line">
-            <div className="line-segment line-left"></div>
-            <div className="line-dot"></div>
-            <div className="line-segment line-right"></div>
-          </div> */}
         </div>
 
-        {/* Industry Cards Grid */}
-        <div className="industry-grid">
-          {TABDATA.map((item, index) => {
-            const IconComponent = INDUSTRY_ICONS[item.label];
-            const themeClass = INDUSTRY_THEMES[item.label];
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "2rem",
+            justifyContent: "center",
+          }}
+        >
+          {Object.entries(INDUSTRY_THEMES).map(([industry, theme], index) => {
+            const IconComponent = industryIcons[industry];
+            const width = `calc(${100 / columns}% - 5rem)`;
 
             return (
-              <div key={item.id} className={`industry-card ${themeClass}`}>
-                {/* Background Overlay */}
-                <div className="bg-overlay"></div>
+              <div
+                key={industry}
+                style={{
+                  backgroundColor: "#ffffff",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                  cursor: "pointer",
+                  borderRadius: "0.5rem",
+                  overflow: "hidden",
+                  transition: "all 0.5s",
+                  width,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.transform = "translateY(-0.75rem)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.transform = "translateY(0)")
+                }
+              >
+                <div
+                  style={{
+                    padding: "2rem",
+                    textAlign: "center",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to bottom right, #fff7ed, transparent)",
+                      opacity: 0,
+                      transition: "opacity 0.3s",
+                    }}
+                    className="hover-bg"
+                  ></div>
 
-                {/* Floating Elements */}
-                <div className="card-float-1"></div>
-                <div className="card-float-2"></div>
+                  <div style={{ position: "relative", zIndex: 10 }}>
+                    <div style={{ marginBottom: "1.5rem" }}>
+                      <div
+                        style={{
+                          width: "5rem",
+                          height: "5rem",
+                          background:
+                            "linear-gradient(to bottom right, #f97316, #ea580c)",
+                          color: "#ffffff",
+                          borderRadius: "1rem",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          margin: "0 auto 1rem",
+                          transition: "transform 0.3s",
+                        }}
+                      >
+                        <IconComponent size={32} />
+                      </div>
+                    </div>
 
-                {/* Icon Container */}
-                <div className="icon-container">
-                  <div className="icon-wrapper">
-                    {IconComponent && (
-                      <IconComponent className="w-10 h-10 text-white" />
-                    )}
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h3
+                        style={{
+                          fontSize: "1.25rem",
+                          fontWeight: "bold",
+                          color: "#1f2937",
+                          transition: "color 0.3s",
+                        }}
+                      >
+                        {industry}
+                      </h3>
+                      <div
+                        style={{
+                          width: "3rem",
+                          height: "0.25rem",
+                          backgroundColor: "#f97316",
+                          margin: "0.5rem auto",
+                          borderRadius: "9999px",
+                          transition: "width 0.3s",
+                        }}
+                      ></div>
+                      <p
+                        style={{
+                          color: "#4b5563",
+                          fontSize: "0.875rem",
+                          fontWeight: 500,
+                          opacity: 0.8,
+                          transition: "opacity 0.3s",
+                        }}
+                      >
+                        Specialized certification services
+                      </p>
+                    </div>
                   </div>
-
-                  {/* Pulse Ring */}
-                  <div className="pulse-ring"></div>
                 </div>
-
-                {/* Content */}
-                <div className="card-content">
-                  <h3 className="card-title">{item.label}</h3>
-
-                  {/* Feature Points */}
-                  <div className="feature-points">
-                    <div className="feature-point">
-                      <div className="feature-dot"></div>
-                      <span className="feature-text">Certified Excellence</span>
-                    </div>
-                    <div className="feature-point">
-                      <div className="feature-dot"></div>
-                      <span className="feature-text">Industry Expertise</span>
-                    </div>
-                    <div className="feature-point">
-                      <div className="feature-dot"></div>
-                      <span className="feature-text">Quality Assurance</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Arrow */}
-                <div className="hover-arrow">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-
-                {/* Shimmer Effect */}
-                <div className="shimmer-effect"></div>
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Section */}
-        <div className="bottom-section text-center">
-          {/* <div className="cta-button">
-            <span>Explore Our Services</span>
-            <div className="cta-icon">
-              <ArrowRight className="w-4 h-4" />
-            </div>
-          </div> */}
-
-          {/* Trust Indicators */}
-          <div className="trust-indicators">
-            <div className="trust-item">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="trust-text">ISO Certified</span>
-            </div>
-            <div className="trust-separator"></div>
-            <div className="trust-item">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="trust-text">Quality Assured</span>
-            </div>
-            <div className="trust-separator"></div>
-            <div className="trust-item">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="trust-text">Expert Team</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

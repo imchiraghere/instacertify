@@ -1,101 +1,230 @@
-import { HAPPY_CUSTOMER_DATA } from "@/utills/const";
+import React from "react";
 import Slider from "react-slick";
-import Image from "next/image";
-import { useRef } from "react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const HappyCustomer = () => {
-  const sliderRef = useRef(null);
+const reviews = [
+  {
+    id: 1,
+    name: "Anjali Sharma",
+    review:
+      "The certification process was quick and easy thanks to their efficient team. Highly recommended!",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Rahul Mehta",
+    review:
+      "Quick turnaround and very knowledgeable staff. Highly recommend for anyone needing compliance support.",
+    rating: 4,
+  },
+  {
+    id: 3,
+    name: "Priya Desai",
+    review:
+      "Thorough and professional! They helped us expand to international markets with the right documentation and certifications.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Priya Desai",
+    review:
+      "Thorough and professional! They helped us expand to international markets with the right documentation and certifications.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Priya Desai",
+    review:
+      "Thorough and professional! They helped us expand to international markets with the right documentation and certifications.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Priya Desai",
+    review:
+      "Thorough and professional! They helped us expand to international markets with the right documentation and certifications.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Priya Desai",
+    review:
+      "Thorough and professional! They helped us expand to international markets with the right documentation and certifications.",
+    rating: 5,
+  },
+];
 
+const PrevArrow = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    style={{
+      background: "#E5E7EB",
+      borderRadius: "50%",
+      padding: "10px",
+      border: "none",
+      position: "absolute",
+      bottom: "0",
+      right: "60px",
+      zIndex: 2,
+      cursor: "pointer",
+    }}
+  >
+    <ChevronLeft size={20} />
+  </button>
+);
+
+const NextArrow = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    style={{
+      background: "#f97316",
+      borderRadius: "50%",
+      padding: "10px",
+      border: "none",
+      position: "absolute",
+      bottom: "0",
+      right: "10px",
+      zIndex: 2,
+      cursor: "pointer",
+      color: "#fff",
+    }}
+  >
+    <ChevronRight size={20} />
+  </button>
+);
+
+const ReviewSection = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 800,
-    slidesToShow: 3,
+    speed: 500,
+    slidesToShow: 3, // Only one card visible
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     arrows: true,
-    // prevArrow: <PrevArrow />,
-    // nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-    ],
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
-    <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0">
-      <div className="items-center justify-between md:flex mb-[30px] md:mb-[80px]">
-        <div>
-          <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
-            Our Happy Customers
-          </h2>
-          <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
-            Know about our clients, we are a woldwide corporate brand
-          </p>
-        </div>
-        <div className="flex items-center gap-5 self-end">
-          <div
-            onClick={() => sliderRef.current?.slickPrev()}
-            className="grid place-items-center border border-gray-200 bg-gray-100 rounded-full cursor-pointer group transition-colors duration-200 w-[48px] xl:w-[64px] h-[48px] xl:h-[64px] hover:bg-gray-900 feedback-prev"
-          >
-            <img
-              className="group-hover:filter-white"
-              src="/assets/images/icons/icon-prev.svg"
-              alt="control icon button"
-            />
-          </div>
-          <div
-            onClick={() => sliderRef.current?.slickNext()}
-            className="grid place-items-center border border-gray-200 bg-gray-100 rounded-full cursor-pointer group transition-colors duration-200 w-[48px] xl:w-[64px] h-[48px] xl:h-[64px] hover:bg-gray-900 feedback-next"
-          >
-            <img
-              className="group-hover:filter-white"
-              src="/assets/images/icons/icon-next.svg"
-              alt="control icon button"
-            />
-          </div>
-        </div>
-      </div>
+    <section
+      style={{
+        // backgroundColor: "#fff7ed",
+        padding: "60px 20px",
+        textAlign: "center",
+      }}
+    >
+      <h2
+        style={{
+          fontSize: "32px",
+          fontWeight: "800",
+          color: "#0f172a",
+          marginBottom: "10px",
+          fontFamily:"Chivo"
+        }}
+      >
+        Client Testimonials:
+      </h2>
+      <p
+        style={{
+          color: "#475569",
+          marginBottom: "40px",
+          fontSize: "18px",
+          maxWidth: "600px",
+          margin: "0 auto",
+        }}
+      >
+        Building Success Together
+      </p>
 
-      <div className="feedback-list ml-[-15px]">
-        <Slider ref={sliderRef} {...settings}>
-          {HAPPY_CUSTOMER_DATA.map((item, index) => (
-            <div
-              key={index}
-              className="px-[15px] mt-[2px]" // Adds spacing between slides
-            >
+      <div
+        style={{
+          // maxWidth: "520px",
+          margin: "0 auto",
+          position: "relative",
+        }}
+      >
+        <Slider {...settings}>
+          {reviews.map((review) => (
+            <div key={review.id}>
               <div
-                style={{ borderRadius: 10 }}
-                className={`border p-10 transition-all duration-300 hover:translate-y-[-2px] ${item.borderClass}`}
+                style={{
+                  backgroundColor: "#fef3c7",
+                  padding: "32px",
+                  borderRadius: "24px",
+                  boxShadow: "0 15px 25px rgba(0,0,0,0.05)",
+                  position: "relative",
+                  textAlign: "left",
+                  minHeight: "250px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  margin: "10%",
+                }}
               >
-                {/* <Image
-                  src={item.image}
-                  width={55}
-                  height={55}
-                  alt={item.name}
-                  className="object-cover rounded-full mb-[22px]"
-                /> */}
-                <p className="text-heading-6 font-chivo font-bold mb-[6px]">
-                  {item.name}
+                {/* Quote Icon */}
+                <div
+                  style={{
+                    background: "#f97316",
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "absolute",
+                    top: "8px",
+                    left: "30px",
+                    color: "#fff",
+                  }}
+                >
+                  <Quote size={24} />
+                </div>
+
+                <p
+                  style={{
+                    color: "#0f172a",
+                    fontSize: "16px",
+                    marginBottom: "24px",
+                    marginTop: "40px",
+                    lineHeight: "1.7",
+                  }}
+                >
+                  {review.review}
                 </p>
-                {/* <p className="text-sm font-bold mb-5 text-gray-700">
-                  {item.company}
-                </p> */}
-                <p className="text-text text-gray-500">{item.message}</p>
+
+                <div
+                  style={{ marginBottom: "12px", display: "flex", gap: "4px" }}
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={20}
+                      fill={i < review.rating ? "#facc15" : "none"}
+                      stroke={i < review.rating ? "#facc15" : "#d1d5db"}
+                    />
+                  ))}
+                </div>
+
+                <p
+                  style={{
+                    fontWeight: "700",
+                    fontSize: "16px",
+                    color: "#0f172a",
+                  }}
+                >
+                  {review.name}
+                </p>
               </div>
             </div>
           ))}
         </Slider>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HappyCustomer;
+export default ReviewSection;

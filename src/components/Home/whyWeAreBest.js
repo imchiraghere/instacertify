@@ -47,7 +47,7 @@ const WhyWeAreBest = () => {
         </div>
       </div>
       <div
-        style={{ marginTop: "5%" }}
+        style={{ marginTop: "5%", display: "flex", justifyContent: "center" }}
         className="min-h-screen bg-gray-50 py-16 px-4"
       >
         <div className="max-w-6xl mx-auto">

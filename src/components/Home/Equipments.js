@@ -54,7 +54,7 @@ const EquipmentSlider = () => {
           marginTop: "5%",
         }}
       >
-        <AnimatedButton title={"View More"} />
+        <AnimatedButton title={"Explore full range"} />
       </div>
     </div>
   );

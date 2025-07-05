@@ -4628,6 +4628,9 @@ select {
     .md\:max-w-\[100px\] {
         max-width: 100px
     }
+    .md\:max-w-\[120px\] {
+        max-width: 120px
+    }
 
     .md\:-translate-y-\[30\%\] {
         --tw-translate-y: -30%

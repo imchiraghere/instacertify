@@ -9,7 +9,10 @@ const Banner = ({ onOpen }) => {
 
   return (
     <div className="full-width banner-hero bg-orange-100 banner-1">
-      <div className="px-[12px] md:px-[53px]  xl:px-0 z-10 relative mx-auto py-[60px] max-w-[1320px] lg:flex lg:items-center">
+      <div
+        style={{ paddingLeft: "6%" }}
+        className="px-[12px] md:px-[53px]  xl:px-0 z-10 relative mx-auto py-[60px] max-w-[1320px] lg:flex lg:items-center"
+      >
         {/* Left Side Content */}
         <motion.div
           className="flex-1"
@@ -85,7 +88,7 @@ const Banner = ({ onOpen }) => {
             <ConsultationForm />
           </div>
           <div
-            style={{ left: "-10%" }}
+            style={{ left: "-12%" }}
             className="absolute opacity-80 animate-float max-w-[176px] bottom-[10%]"
           >
             <div className="relative bg-green-900 bg-opacity-80 rounded-2xl overflow-hidden grid place-items-center">

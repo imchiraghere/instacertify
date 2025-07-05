@@ -145,9 +145,9 @@ const News = () => {
           <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 md:mb-[22px] max-w-[725px]">
             Our Upcoming Events
           </h2>
-          <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
+          {/* <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
             From Our blog and Event fanpage
-          </p>
+          </p> */}
         </div>
         <AnimatedButton title={"View more"} />
       </div>

@@ -6,8 +6,8 @@ const Strategy = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0 lg:mt-[100px]">
-      <div className="text-center mb-[70px]">
+    <div className="px-[12px] md:px-[36px] mt-[30px] xl:px-0 lg:mt-[100px]">
+      <div className="text-center mb-[50px]">
         <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
           Our Services
         </h2>
@@ -18,24 +18,31 @@ const Strategy = () => {
         </p>
       </div>
 
-      <div className="lg:flex lg:gap-5 xl:gap-[30px]">
+      <div className="lg:flex lg:gap-5 xl:gap-[30px] justify-center ">
         {STRATEGY_DATA?.map((item, index) => (
           <div
             key={index}
             onMouseEnter={() => setHovered(index)}
             onMouseLeave={() => setHovered(null)}
-            className={`rounded-2xl max-w-[120px] p-[30px] md:py-[53px] md:px-[48px] relative mb-5 flex flex-col justify-between transition-all duration-300 hover:translate-y-[-2px] ${item.bgClass}`}
+            style={{
+              maxWidth: "25%",
+              // display: "flex",
+              // alignItems: "center",
+              // justifyContent: "center",
+              // marginLeft: "1%",
+            }}
+            className={`rounded-2xl max-w-[100px] p-[20px] md:py-[40px] md:px-[40px] relative mb-5 flex flex-col justify-between transition-all duration-300 hover:translate-y-[-2px] ${item.bgClass}`}
           >
             <div>
               <img
-                className="h-full w-full object-cover mb-[30px] max-w-[80px] max-h-[80px]"
+                className="h-full w-full object-cover mb-[30px] max-w-[50px] max-h-[50px]"
                 src={item.icon}
                 alt="icon"
               />
-              <h2 className="font-bold font-chivo text-[28px] leading-[32px]  mb-[30px]">
+              <h2 className="font-bold font-chivo text-[25px] leading-[32px]  mb-[30px]">
                 {item.title}
               </h2>
-              <p className="text-excerpt text-gray-600 mb-[30px]">
+              <p className="text-excerpt text-gray-600 mb-[30px] max-w-[120px]">
                 {item.description}
               </p>
             </div>
