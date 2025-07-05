@@ -71,7 +71,7 @@ const Header = () => {
           whiteSpace: "nowrap",
           cursor: "pointer",
           fontFamily: "Chivo, sans-serif",
-          fontSize: level === 0 ? "18px" : "15px",
+          fontSize: level === 0 ? "16px" : "14px",
         }}
       >
         <Link
@@ -138,14 +138,14 @@ const Header = () => {
     <>
       <div class={`overlay ${menuOpen ? "show" : ""} `}></div>
       <header
-        className={`h-auto full-width relative py-[15px] lg:py-[26px] ${
+        className={`h-auto full-width relative py-[15px] md:px-[53px] lg:py-[26px] ${
           isSticky ? "sticky-header" : ""
         }`}
       >
         <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0 flex items-center justify-between mx-auto relative !mt-0 max-w-[1320px]">
           <Link className="flex" href="/">
             <img
-              className="logo z-50 w-[90px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
+              className="logo z-50 w-[120px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
               src={isSticky ? "/assets/img/sodag.svg" : "/assets/img/sad.svg"}
               alt="logo image"
             />
@@ -153,7 +153,7 @@ const Header = () => {
           <InlineMenu />
 
           <div className="hidden xl:block">
-            <AnimatedButton title="Contact Us" href={"/contact-us"} />
+            <AnimatedButton title="Get Certified" href={"/contact-us"} />
           </div>
         </div>
 

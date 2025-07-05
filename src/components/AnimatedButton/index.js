@@ -7,11 +7,11 @@ const AnimatedButton = ({ title, href }) => {
   const commonStyles = {
     display: "flex",
     alignItems: "center",
-    padding: "18px 35px",
+    padding: "15px 25px",
     borderRadius: "50px",
     fontFamily: "Chivo, sans-serif",
     fontWeight: 600,
-    fontSize: "16px",
+    fontSize: "14px",
     color: "#fff",
     backgroundColor: hovered ? "#ec691f" : "#065175",
     transition: "all 0.3s ease",

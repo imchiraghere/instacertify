@@ -1548,6 +1548,13 @@ select {
     width: 100px
 }
 
+.w-\[110px\] {
+    width: 110px
+}
+.w-\[120px\] {
+    width: 120px
+}
+
 .w-\[82px\] {
     width: 82px
 }
@@ -2239,7 +2246,7 @@ select {
 
 @keyframes hero-thumb-sm-animation {
     0% {
-        transform: translateX(50px)
+        transform: translateX(40px)
     }
 
     to {
@@ -3588,13 +3595,13 @@ select {
 }
 
 .text-quote {
-    font-size: 20px;
+    font-size: 17px;
     line-height: 28px
 }
 
 .text-excerpt {
-    font-size: 18px;
-    line-height: 26px
+    font-size: 16px;
+    line-height: 23px
 }
 
 .text-heading-5 {
@@ -4618,6 +4625,9 @@ select {
     .md\:max-w-\[52px\] {
         max-width: 52px
     }
+    .md\:max-w-\[100px\] {
+        max-width: 100px
+    }
 
     .md\:-translate-y-\[30\%\] {
         --tw-translate-y: -30%
@@ -4847,7 +4857,7 @@ select {
     }
 
     .md\:text-lead-lg {
-        font-size: 24px;
+        font-size: 20px;
         line-height: 32px
     }
 
@@ -5447,9 +5457,9 @@ select {
     }
 
     .lg\:text-display-2 {
-        font-size: 80px;
+        font-size: 55px;
         letter-spacing: -.005em;
-        line-height: 88px
+        line-height: 60px
     }
 
     .lg\:text-\[26px\] {

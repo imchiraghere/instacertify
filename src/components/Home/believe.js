@@ -7,21 +7,21 @@ const Believe = () => {
         <div className="relative">
           <img
             className="rounded-2xl mb-[30px] lg:mb-0 lg:flex-1"
-            src="/assets/images/thumbnail-2.png"
+            src="/assets/images/cert.svg"
             alt="Agon"
           />
         </div>
         <div className="flex-1 order-1">
-          <span className="font-chivo inline-block bg-bg-2 text-orange-900 py-[14px] px-[28px] rounded-[50px] text-[18px] leading-[14px] mb-[22px]">
+          <span className="font-chivo inline-block bg-bg-2 text-orange-900 py-[14px] px-[28px] rounded-[50px] text-[15px] leading-[14px] mb-[22px]">
             Instacertify Certifications Made Simple
           </span>
-          <h3 className="font-chivo font-bold lg:text-heading-1 md:text-[46px] md:leading-[52px] text-[35px] leading-[44px] mb-[22px]">
+          <h3 className="font-chivo font-bold md:text-[40px] md:leading-[52px] text-[35px] leading-[44px] mb-[22px]">
             Simply your path to product certification excellence with our expert
             solutions
           </h3>
           <p
-            style={{ fontSize: "20px" }}
-            className="text-quote md:text-lead-lg text-gray-600 mb-[30px]"
+            style={{ fontSize: "18px" }}
+            className="text-quote md:text-lead-md text-gray-600 mb-[30px]"
           >
             We are India's leading product testing and compliance solutuion
             partner, driving rapid industry growth. Specializing in quality
@@ -36,7 +36,18 @@ const Believe = () => {
             {BELIEVE_FEATURES.map((item, index) => (
               <div className="mb-[30px] lg:mb-0" key={index}>
                 <div className="flex items-center mb-[17px]">
-                  <img className="mr-[9px]" src={item.icon} alt="icon" />
+                  <div
+                    style={{
+                      paddingLeft: "5%",
+                      paddingRight: "5%",
+                      paddingTop: "2.5%",
+                      paddingBottom: "2.5%",
+                      marginRight: "5%",
+                    }}
+                    className="rounded-full bg-green-900 text-white flex items-center justify-center text-base font-bold"
+                  >
+                    {index + 1}
+                  </div>
                   <h4 className="text-heading-6 font-chivo font-bold">
                     {item.title}
                   </h4>

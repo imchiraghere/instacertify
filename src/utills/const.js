@@ -264,6 +264,10 @@ export const HEADER_SLUG = [
       },
     ],
   },
+  {
+    label: "Contact us",
+    href: "/contact-us",
+  },
 ];
 
 export const PAGE_SLUG = {
@@ -279,11 +283,11 @@ export const PAGE_SLUG = {
 
 export const LOGO_ITEMS = [
   { src: "/assets/images/partner-logo/p1.png", alt: "partner logo 1" },
-  { src: "/assets/images/partner-logo/p2.png", alt: "partner logo 2" },
+  { src: "/assets/images/partner-logo/p2.svg", alt: "partner logo 2" },
   { src: "/assets/images/partner-logo/p3.png", alt: "partner logo 3" },
   { src: "/assets/images/partner-logo/p4.png", alt: "partner logo 4" },
   {
-    src: "/assets/images/partner-logo/p5.png",
+    src: "/assets/images/partner-logo/p5.svg",
     alt: "partner logo 5",
     extraClass: "md:col-start-2 lg:col-start-auto",
   },
@@ -353,7 +357,7 @@ export const TABDATA = [
 
 export const STRATEGY_DATA = [
   {
-    icon: "/assets/images/icons/icon-flower.svg",
+    icon: "/assets/images/icons/certificate.svg",
     iconWhite: "/assets/images/icons/icon-flower-white.svg",
     bgClass: "bg-bg-5",
     title: "Certifications",
@@ -361,15 +365,15 @@ export const STRATEGY_DATA = [
       "We offer a wide range of certification services to help businesses comply with industry standards and regulations.",
   },
   {
-    icon: "/assets/images/icons/icon-map.svg",
-    iconWhite: "/assets/images/icons/icon-map-white.svg",
+    icon: "/assets/images/icons/testing.svg",
+    iconWhite: "/assets/images/icons/testing-white.svg",
     bgClass: "bg-bg-9",
     title: "Testing",
     description:
       "Our state-of-the-art testing facilities and expert team are equipped to perform rigorous testing for a variety of products.",
   },
   {
-    icon: "/assets/images/icons/icon-pine.svg",
+    icon: "/assets/images/icons/equip.svg",
     iconWhite: "/assets/images/icons/icon-pine-white.svg",
     bgClass: "bg-bg-2",
     title: "Equipment",
@@ -437,68 +441,30 @@ export const OFFER_DATA = [
 export const HAPPY_CUSTOMER_DATA = [
   {
     image: "/assets/images/avatar-1.png",
-    name: "Wade Warren",
+    name: "Amit S.",
     company: "Louis Vuitton",
     message:
-      "Even factoring differences in body weight between children and adults into account.",
+      "We've worked with several certification companies in the past, but none compare to Insta Certify Services. Their streamlined testing and certification processes have saved us time and resources. The team goes above and beyond to ensure everything is done correctly, and their equipment is cutting-edge.",
     borderClass: "border-bg-4",
   },
   {
     image: "/assets/images/avatar-2.png",
-    name: "Wade Warren",
+    name: "Sanjay",
     company: "Louis Vuitton",
     message:
-      "Even factoring differences in body weight between children and adults into account.",
+      "We've worked with several certification companies in the past, but none compare to InstaCertify Services. Their reamlined testing and certification processes have saved us time and resources. The team goes above and beyond to ensure everything is done correctly, and their equipment is cutting-edge.",
     borderClass: "border-bg-6",
   },
   {
     image: "/assets/images/avatar-3.png",
-    name: "Wade Warren",
+    name: "Vikram T",
     company: "Louis Vuitton",
     message:
-      "Even factoring differences in body weight between children and adults into account.",
+      "Insta Certify Services has been an invaluable partner in ensuring our products meet industry standards. Their expertise in testing and certification is unmatched, and their team has been incredibly supportive throughout the entire process. We highly recommend them for anyone seeking reliable certification solutions. ",
     borderClass: "border-bg-10",
   },
-  {
-    image: "/assets/images/avatar-4.png",
-    name: "Wade Warren",
-    company: "Louis Vuitton",
-    message:
-      "Even factoring differences in body weight between children and adults into account.",
-    borderClass: "border-bg-9",
-  },
-  {
-    image: "/assets/images/avatar-5.png",
-    name: "Wade Warren",
-    company: "Louis Vuitton",
-    message:
-      "Even factoring differences in body weight between children and adults into account.",
-    borderClass: "border-bg-4",
-  },
-  {
-    image: "/assets/images/avatar-6.png",
-    name: "Wade Warren",
-    company: "Louis Vuitton",
-    message:
-      "Even factoring differences in body weight between children and adults into account.",
-    borderClass: "border-bg-6",
-  },
-  {
-    image: "/assets/images/avatar-7.png",
-    name: "Wade Warren",
-    company: "Louis Vuitton",
-    message:
-      "Even factoring differences in body weight between children and adults into account.",
-    borderClass: "border-bg-10",
-  },
-  {
-    image: "/assets/images/avatar-8.png",
-    name: "Wade Warren",
-    company: "Louis Vuitton",
-    message:
-      "Even factoring differences in body weight between children and adults into account.",
-    borderClass: "border-bg-9",
-  },
+
+
 ];
 
 export const NEWS_DATA = [
@@ -512,7 +478,7 @@ export const NEWS_DATA = [
   {
     category: "Marketing Event",
     title: "Footwear India Expo",
-    image: "/assets/images/L2.webp",
+    image: "/assets/images/ev1.png",
     bgClass: "bg-bg-6",
     link: "/",
   },
@@ -698,5 +664,28 @@ export const LOCATION_ADDRESS = [
     title: "Maharashtra",
     address:
       "1st Floor, Abha Building, Valipeer Road Railway Station, Bhanunagar Kalyan(West), Bhoiwada, Kalyan, Maharashtra 421301",
+  },
+];
+
+export const EQUIPMENT_DATA = [
+  {
+    id: "tensile-machine-1",
+    name: "Universal Testing Machine",
+    image: "/assets/images/equipment/eq1.jpg",
+  },
+  {
+    id: "compression-tester",
+    name: "Compression Testing System",
+    image: "/assets/images/equipment/tensile.png",
+  },
+  {
+    id: "hardness-tester",
+    name: "Digital Hardness Tester",
+    image: "/assets/images/equipment/e3.png",
+  },
+  {
+    id: "impact-tester",
+    name: "Charpy Impact Tester",
+    image: "/assets/images/equipment/e4.png",
   },
 ];

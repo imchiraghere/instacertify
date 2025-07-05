@@ -8,11 +8,10 @@ import WelcomePopup from "@/components/Layout/welcome-popup";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 export default function App({ Component, pageProps }) {
   return (
     <>
-        <WelcomePopup />
+      {/* <WelcomePopup /> */}
       <div className="overflow-x-hidden w-screen relative home-page">
         <div className="full-with address hidden">
           <div className="flex items-center px-3 justify-between gap-5 mx-auto max-w-[1320px] py-[10px] md:mx-8">
