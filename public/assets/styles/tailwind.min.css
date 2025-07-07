@@ -4461,6 +4461,9 @@ select {
     .md\:ml-\[78px\] {
         margin-left: 78px
     }
+    .md\:ml-\[110px\] {
+        margin-left: 110px
+    }
 
     .md\:mr-\[50px\] {
         margin-right: 50px
@@ -4610,6 +4613,9 @@ select {
         width: 55ch
     }
 
+    .md\:max-w-\[25\%\] {
+        max-width: 25%
+    }
     .md\:max-w-\[50ch\] {
         max-width: 50ch
     }
@@ -5143,6 +5149,9 @@ select {
         margin-right: 30px
     }
 
+    .lg\:mb-\[40px\] {
+        margin-bottom: 40px
+    }
     .lg\:mb-\[48px\] {
         margin-bottom: 48px
     }

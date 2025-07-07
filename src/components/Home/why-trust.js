@@ -9,36 +9,12 @@ const WhyTrust = ({ onOpen }) => {
 
   return (
     <>
-      {showVideo && (
-        <div className="absolute top-0 left-0 w-full h-full bg-opacity-80 video-iframe bg-[#0b0b0b] z-[999999]">
-          <div className="mx-auto video w-1/2">
-            <div className="flex justify-end">
-              <button
-                className="text-white text-[20px]"
-                type="button"
-                title="Close (Esc)"
-                onClick={() => setShowVideo(false)}
-              >
-                x
-              </button>
-            </div>
-            <iframe
-              className="aspect-video w-full"
-              src="https://www.youtube.com/embed/oRI37cOPBQQ?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
       <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0">
         <div className="text-center">
-          <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
+          <h2 className="font-bold font-chivo mx-auto text-[28px] md:text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
             See why we are trusted the world over
           </h2>
-          <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
+          <p className="md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
             From secure digital certifications to seamless verification
             processes, Instacertify empowers organizations globally with
             trusted, tamper-proof credentials. Discover why educational

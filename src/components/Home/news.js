@@ -49,6 +49,7 @@ const News = () => {
         transition: "all 0.3s ease",
         display: "flex",
         flexDirection: "column",
+        margin: "3%",
       },
       imageWrapper: {
         width: "100%",
@@ -110,7 +111,6 @@ const News = () => {
 
     return (
       <div
-        className="event-card"
         style={styles.card}
         onMouseEnter={(e) => {
           e.currentTarget.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.1)";
@@ -140,11 +140,9 @@ const News = () => {
 
   return (
     <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0">
-      <div className="items-center justify-between mb-[70px] md:mb-[90px] md:flex">
+      <div className="items-center justify-between mb-[40px] md:mb-[40px] md:flex">
         <div>
-          <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 md:mb-[22px] max-w-[725px]">
-            Our Upcoming Events
-          </h2>
+          <h2 className="heading">Our Upcoming Events</h2>
           {/* <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
             From Our blog and Event fanpage
           </p> */}

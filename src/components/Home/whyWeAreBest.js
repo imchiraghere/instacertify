@@ -1,21 +1,64 @@
 import Image from "next/image";
-import Link from "next/link";
 import AnimatedButton from "../AnimatedButton";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ClipboardCheck, Wrench, Tag } from "lucide-react";
+import Slider from "react-slick";
 
-const features = [
-  { icon: "/assets/icons/testing.svg", title: "Testing" },
-  { icon: "/assets/icons/equipments.svg", title: "Equipments" },
-  { icon: "/assets/icons/standards.svg", title: "Standards" },
-  { icon: "/assets/icons/audit.svg", title: "Audit" },
-  { icon: "/assets/icons/certification.svg", title: "Certification" },
-  { icon: "/assets/icons/training.svg", title: "Training" },
-  { icon: "/assets/icons/business.svg", title: "Business Growth" },
-  { icon: "/assets/icons/compliance.svg", title: "Compliance" },
+const services = [
+  {
+    icon: <ClipboardCheck size={32} />,
+    title: "Product Certification Solutions",
+    desc: "Access privately syndicated deals managed by experienced operators.",
+  },
+  {
+    icon: <Wrench size={32} />,
+    title: "Testing",
+    desc: "Helping you with testing that your product requires, not what we sell.",
+  },
+  {
+    icon: <Tag size={32} />,
+    title: "Brand Representation",
+    desc: "Just in case you're ready for market before you are available in market.",
+  },
 ];
 
 const WhyWeAreBest = () => {
+  const [columns, setColumns] = useState(true); // Default to desktop
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setColumns(true); // Mobile
+      } else {
+        setColumns(false); // Desktop
+      }
+    };
+
+    updateColumns(); // Initial check
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // 3 on desktop
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
     <section className="why-best-section">
       <div className="why-best-container">
@@ -30,9 +73,9 @@ const WhyWeAreBest = () => {
           <div className="desc-box">
             <p>
               Our expert not only work toward in getting job done, but also work
-              towards elevatating your <strong>product's</strong> credibility
-              with our solutions, ensuring compliance and{" "}
-              <strong>quality assurance</strong>. Our streamline the process,
+              towards elevating your <strong>product's</strong> credibility with
+              our solutions, ensuring compliance and{" "}
+              <strong>quality assurance</strong>. We streamline the process,
               offering expertise that empowers your business to excel in the
               market.
             </p>
@@ -42,51 +85,49 @@ const WhyWeAreBest = () => {
         </div>
 
         {/* Right Diagram */}
-        <div className="why-best-right">
-          <div className="map-bg" />
-        </div>
+        {!columns && (
+          <div className="why-best-right">
+            <div className="map-bg" />
+          </div>
+        )}
       </div>
-      <div
-        style={{ marginTop: "5%", display: "flex", justifyContent: "center" }}
-        className="min-h-screen bg-gray-50 py-16 px-4"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">
-                <ClipboardCheck size={32} />
-              </div>
-              <h3 className="service-title">Product Certification Solutions</h3>
-              <p className="service-description">
-                Access privately syndicated deals managed by experienced
-                operators
-              </p>
-            </div>
+      {/* Services Section */}
 
-            <div className="service-card">
-              <div className="service-icon">
-                <Wrench size={32} />
+      {columns ? (
+        <>
+          <div style={{ marginTop: "5%" }}>
+            <Slider {...settings}>
+              {services.map((service, idx) => (
+                <div className="service-card" key={idx}>
+                  <div className="service-icon">{service.icon}</div>
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.desc}</p>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </>
+      ) : (
+        <>
+          <div style={{ marginLeft: "2%" }} className="services-wrapper">
+            <div className="">
+              <div className="services-grid">
+                {services.map((service, idx) => (
+                  <div
+                    className="service-card"
+                    style={{ width: "350px" }}
+                    key={idx}
+                  >
+                    <div className="service-icon">{service.icon}</div>
+                    <h3 className="service-title">{service.title}</h3>
+                    <p className="service-description">{service.desc}</p>
+                  </div>
+                ))}
               </div>
-              <h3 className="service-title">Testing</h3>
-              <p className="service-description">
-                Helping you with testing that your product requires, not what we
-                sell
-              </p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon">
-                <Tag size={32} />
-              </div>
-              <h3 className="service-title">Brand Representation</h3>
-              <p className="service-description">
-                Just in case your ready for market before you are available in
-                market
-              </p>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </section>
   );
 };

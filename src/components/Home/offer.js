@@ -8,6 +8,7 @@ const SERVICES = [
     description: "Making your product compliance ready",
     icon: Shield,
     position: { top: "-35%", left: "10px" },
+    width: "60vw",
     delay: 0,
   },
   {
@@ -24,6 +25,7 @@ const SERVICES = [
     description: "Take your product around the globe",
     icon: Globe,
     position: { top: "-25%", right: "-250px" },
+    width: "60vw",
     delay: 1,
   },
   {
@@ -32,12 +34,30 @@ const SERVICES = [
     description: "Simply all the test your products needs",
     icon: FlaskConical,
     position: { top: "25%", right: "-20px" },
+    width: "60vw",
     delay: 1.5,
   },
 ];
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const [columns, setColumns] = useState(3); // Default to desktop
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setColumns(2); // Mobile
+      } else {
+        setColumns(3); // Desktop
+      }
+    };
+
+    updateColumns(); // Initial check
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,45 +94,81 @@ const HeroSection = () => {
 
         {/* Girl Image + Floating Cards */}
         <div className="relative flex justify-center items-center hero-image-container">
-          <div style={{ position: "absolute" }} className="image-wrappr">
+          <div
+            style={{ position: "absolute" }}
+            className="image-wrappr lg:hidden block"
+          >
             <img
               src="/assets/images/whatwe.png"
               alt="Professional consultant"
               // className="hero-image"
             />
-{/* 
-            <div className="image-decoration image-decoration-1"></div>
-            <div className="image-decoration image-decoration-2"></div>
-            <div className="image-decoration image-decoration-3"></div> */}
           </div>
 
           {/* Floating Cards */}
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.id}
-                className={`floating-card service-card ${
-                  isVisible ? "visible" : ""
-                }`}
-                style={{
-                  ...service.position,
-                  animationDelay: `${service.delay}s`,
-                }}
-              >
-                <div className="card-icon">
-                  <Icon size={20} />
-                </div>
-                <div className="card-conten">
-                  <h3 className="card-titl" style={{ fontWeight: 800 }}>
-                    {service.title}
-                  </h3>
-                  <p className="card-description">{service.description}</p>
-                </div>
-                <div className="card-glow"></div>
-              </div>
-            );
-          })}
+
+          {columns === 2 ? (
+            <div
+              className="services-grid relative left-[-15px]"
+              style={{
+                // display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)", // 2 columns
+                gap: "4rem", // space between cards
+              }}
+            >
+              {SERVICES.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={service.id}
+                    className={`floating-card ${isVisible ? "visible" : ""}`}
+                    style={{ padding: "12%", backgroundColor: "#fff" }}
+                  >
+                    <div className="card-icon">
+                      <Icon size={20} />
+                    </div>
+                    <div className="card-conten">
+                      <h3 className="card-titl" style={{ fontWeight: 800 }}>
+                        {service.title}
+                      </h3>
+                      <p className="card-description">{service.description}</p>
+                    </div>
+                    <div className="card-glow"></div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <>
+              {SERVICES.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={service.id}
+                    className={`floating-card lg:block hidden service-card ${
+                      isVisible ? "visible" : ""
+                    }`}
+                    style={{
+                      ...service.position,
+                      // ...service.width,
+                      animationDelay: `${service.delay}s`,
+                    }}
+                  >
+                    <div className="card-icon">
+                      <Icon size={20} />
+                    </div>
+                    <div className="card-conten">
+                      <h3 className="card-titl" style={{ fontWeight: 800 }}>
+                        {service.title}
+                      </h3>
+                      <p className="card-description">{service.description}</p>
+                    </div>
+                    <div className="card-glow"></div>
+                  </div>
+                );
+              })}
+            </>
+          )}
 
           {/* Particles */}
           <div className="floating-particles">

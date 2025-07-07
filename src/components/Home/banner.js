@@ -10,8 +10,8 @@ const Banner = ({ onOpen }) => {
   return (
     <div className="full-width banner-hero bg-orange-100 banner-1">
       <div
-        style={{ paddingLeft: "6%" }}
-        className="px-[12px] md:px-[53px]  xl:px-0 z-10 relative mx-auto py-[60px] max-w-[1320px] lg:flex lg:items-center"
+        // style={{ padding: "4%" }}
+        className="px-[12px]   xl:px-0 z-10 relative mx-auto py-[35px] lg:py-[60px] max-w-[1320px] lg:flex lg:items-center"
       >
         {/* Left Side Content */}
         <motion.div
@@ -21,7 +21,7 @@ const Banner = ({ onOpen }) => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="font-chivo font-bold lg:text-display-2 mb-[40px]"
+            className="font-chivo font-bold text-[28px] lg:text-display-2 mb-[10px] lg:mb-[40px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -34,7 +34,7 @@ const Banner = ({ onOpen }) => {
           </motion.h1>
 
           <motion.p
-            className="text-quote md:text-lead-lg text-gray-500 pr-[40px] lg:pr-[60px] mb-[40px]"
+            className=" text-[14px] md:text-lead-lg text-gray-500 pr-[40px] lg:pr-[60px] mb-[20px] lg:mb-[40px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -58,7 +58,7 @@ const Banner = ({ onOpen }) => {
                 className="flex items-center inline-block z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[18px] rounded-[50px] text-white hover:-translate-y-[2px] text-white text-heading-6 tracking-wide mr-[22px]"
                 href={PAGE_SLUG.ABOUT_US}
               >
-                <span className="block text-inherit w-full h-full rounded-[50px] text-lg font-chivo font-semibold">
+                <span className="block w-full h-full rounded-[50px] text-sm md:text-lg font-chivo font-semibold">
                   Get Started
                 </span>
                 <i>
@@ -79,17 +79,20 @@ const Banner = ({ onOpen }) => {
 
         {/* Right Side Form Animation */}
         <motion.div
-          className="hidden relative flex-1 h-auto self-stretch lg:block"
+          className="relative flex-1 h-auto self-stretch mt-[30px] lg:mt-0 lg:block"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          <div className="w-full animate-hero-thumb-sm-animatio">
+          <div
+            // style={{ marginLeft: "20%" }}
+            className="w-full animate-hero-thumb-sm-animatio md:ml-[110px]"
+          >
             <ConsultationForm />
           </div>
           <div
-            style={{ left: "-12%" }}
-            className="absolute opacity-80 animate-float max-w-[176px] bottom-[10%]"
+            // style={{ left: "-12%" }}
+            className="absolute hidden lg:block  opacity-80 animate-float max-w-[176px] bottom-[10%]"
           >
             <div className="relative bg-green-900 bg-opacity-80 rounded-2xl overflow-hidden grid place-items-center">
               <img

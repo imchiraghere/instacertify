@@ -107,6 +107,20 @@ const ReviewSection = () => {
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 4 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
   };
 
   return (
@@ -123,7 +137,7 @@ const ReviewSection = () => {
           fontWeight: "800",
           color: "#0f172a",
           marginBottom: "10px",
-          fontFamily:"Chivo"
+          fontFamily: "Chivo",
         }}
       >
         Client Testimonials:

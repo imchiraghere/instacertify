@@ -4,16 +4,34 @@ import { FaPinterest } from "react-icons/fa";
 import Link from "next/link";
 import { FOOTER_INDUSTRIES, FOOTER_SERVICES } from "@/utills/const";
 import EnquiryForm from "../FooterForm";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [columns, setColumns] = useState(true); // Default to desktop
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setColumns(true); // Mobile
+      } else {
+        setColumns(false); // Desktop
+      }
+    };
+
+    updateColumns(); // Initial check
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
   return (
     <footer className=" mb-[30px]">
-      <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0">
+      <div className="px-[12px] md:px-[36px] mt-[40px] xl:px-0">
         <div className="flex flex-col items-center gap-2 mb-14 md:flex-row md:justify-between">
           {" "}
           <img
-            className="h-full object-cover  w-[90px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
-            src="/assets/img/sad.svg"
+            className="h-full object-cover w-[140px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
+            src="/assets/img/sodag.svg"
             alt="logo"
           />
           <div className="flex items-center flex-col gap-5 md:flex-row lg:gap-[30px]">
@@ -109,17 +127,18 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          {/* <div>
-            <h5 class="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
-              Services
-            </h5>
+          {columns && (
+            <div className="">
+              <h5 class="text-heading-5  font-chivo font-bold text-gray-900 mb-5 text-[18px]">
+                Services
+              </h5>
 
-            <marquee
+              {/* <marquee
               direction="up"
               scrollamount="2"
               behavior="scroll"
               height="200px"
-            >
+            > */}
               <ul>
                 {FOOTER_SERVICES?.map((service, index) => (
                   <li key={index}>
@@ -132,8 +151,9 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </marquee>
-          </div> */}
+              {/* </marquee> */}
+            </div>
+          )}
 
           <div>
             <h5 className="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
@@ -238,7 +258,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="footer-services-wrapper">
+        <div className="footer-services-wrapper hidden lg:block">
           <h4 className="footer-title">Certifications</h4>
           <ul className="footer-services-list">
             {FOOTER_SERVICES.map((item, index) => (

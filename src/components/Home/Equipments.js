@@ -24,9 +24,9 @@ const EquipmentSlider = () => {
   return (
     <div style={{ marginTop: "6%" }} className="equipment-slider-container">
       {/* Header */}
-      <div className="equipment-header">
-        <h2>Explore Our Equipments</h2>
-        <p>
+      <div className="textCenter">
+        <h2 className="heading">Explore Our Equipments</h2>
+        <p className="subText">
           State-of-the-art testing equipment for precise material analysis and
           quality assurance
         </p>

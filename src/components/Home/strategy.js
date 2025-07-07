@@ -7,11 +7,9 @@ const Strategy = () => {
 
   return (
     <div className="px-[12px] md:px-[36px] mt-[30px] xl:px-0 lg:mt-[100px]">
-      <div className="text-center mb-[50px]">
-        <h2 className="font-bold font-chivo mx-auto text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
-          Our Services
-        </h2>
-        <p className="text-quote md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
+      <div className="textCenter">
+        <h2 className="heading">Our Services</h2>
+        <p className="subText">
           We work with more than 200 certified experts and laboratories to
           present reliable solutions for the required testing, such as the BIS,
           ASTM, IS, and ISO standards.
@@ -25,13 +23,13 @@ const Strategy = () => {
             onMouseEnter={() => setHovered(index)}
             onMouseLeave={() => setHovered(null)}
             style={{
-              maxWidth: "25%",
+              // maxWidth: "25%",
               // display: "flex",
               // alignItems: "center",
               // justifyContent: "center",
               // marginLeft: "1%",
             }}
-            className={`rounded-2xl max-w-[100px] p-[20px] md:py-[40px] md:px-[40px] relative mb-5 flex flex-col justify-between transition-all duration-300 hover:translate-y-[-2px] ${item.bgClass}`}
+            className={`rounded-2xl md:max-w-[25%] max-w-[100px] p-[20px] md:py-[40px] md:px-[40px] relative mb-5 flex flex-col justify-between transition-all duration-300 hover:translate-y-[-2px] ${item.bgClass}`}
           >
             <div>
               <img

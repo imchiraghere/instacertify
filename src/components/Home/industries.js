@@ -22,21 +22,19 @@ const INDUSTRY_THEMES = {
 };
 
 const IndustryCard = () => {
-  const [columns, setColumns] = useState(1); // Default to 1 column
+  const [columns, setColumns] = useState(3); // Default to desktop
 
   useEffect(() => {
-    const getColumnCount = () => {
-      const width = window.innerWidth;
-      if (width >= 1024) return 3;
-      if (width >= 768) return 2;
-      return 1;
-    };
-
     const updateColumns = () => {
-      setColumns(getColumnCount());
+      const width = window.innerWidth;
+      if (width < 768) {
+        setColumns(2); // Mobile
+      } else {
+        setColumns(3); // Desktop
+      }
     };
 
-    updateColumns();
+    updateColumns(); // Initial check
     window.addEventListener("resize", updateColumns);
     return () => window.removeEventListener("resize", updateColumns);
   }, []);
@@ -44,25 +42,11 @@ const IndustryCard = () => {
   return (
     <section style={{ padding: "5rem 0", backgroundColor: "#ffffff" }}>
       <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h2
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: "bold",
-              color: "#1f2937",
-              marginBottom: "1rem",
-            }}
-          >
+        <div className="textCenter">
+          <h2 className="heading">
             Industries We <span style={{ color: "#f97316" }}>Serve</span>
           </h2>
-          <p
-            style={{
-              fontSize: "1.125rem",
-              color: "#4b5563",
-              maxWidth: "32rem",
-              margin: "0 auto",
-            }}
-          >
+          <p className="subText">
             Comprehensive certification solutions across diverse industries
           </p>
         </div>
@@ -72,12 +56,13 @@ const IndustryCard = () => {
             display: "flex",
             flexWrap: "wrap",
             gap: "2rem",
-            justifyContent: "center",
+            justifyContent: columns === 2 ? "space-around" : "center",
           }}
         >
           {Object.entries(INDUSTRY_THEMES).map(([industry, theme], index) => {
             const IconComponent = industryIcons[industry];
             const width = `calc(${100 / columns}% - 5rem)`;
+            console.log("WDITHHH :", width);
 
             return (
               <div
@@ -89,7 +74,7 @@ const IndustryCard = () => {
                   borderRadius: "0.5rem",
                   overflow: "hidden",
                   transition: "all 0.5s",
-                  width,
+                  width: columns === 2 ? "45%" : width,
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "translateY(-0.75rem)")
@@ -100,7 +85,7 @@ const IndustryCard = () => {
               >
                 <div
                   style={{
-                    padding: "2rem",
+                    padding: columns === 2 ? "1rem" : "2rem",
                     textAlign: "center",
                     position: "relative",
                   }}
@@ -121,8 +106,8 @@ const IndustryCard = () => {
                     <div style={{ marginBottom: "1.5rem" }}>
                       <div
                         style={{
-                          width: "5rem",
-                          height: "5rem",
+                          width: columns === 2 ? "3rem" : "5rem",
+                          height: columns === 2 ? "3rem" : "5rem",
                           background:
                             "linear-gradient(to bottom right, #f97316, #ea580c)",
                           color: "#ffffff",
@@ -141,7 +126,7 @@ const IndustryCard = () => {
                     <div style={{ marginBottom: "1rem" }}>
                       <h3
                         style={{
-                          fontSize: "1.25rem",
+                          fontSize: columns === 2 ? "1rem" : "1.25rem",
                           fontWeight: "bold",
                           color: "#1f2937",
                           transition: "color 0.3s",
