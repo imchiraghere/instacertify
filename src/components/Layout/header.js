@@ -2,6 +2,7 @@ import { HEADER_SLUG, PAGE_SLUG } from "@/utills/const";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import AnimatedButton from "../AnimatedButton";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -134,6 +135,57 @@ const Header = () => {
     );
   };
 
+  const RecursiveMobileMenu = ({ items }) => {
+    return (
+      <ul className="pl-0">
+        {items.map((item, idx) => (
+          <MobileMenuItem item={item} key={idx} />
+        ))}
+      </ul>
+    );
+  };
+
+  const MobileMenuItem = ({ item }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const hasChildren = item.children && item.children.length > 0;
+
+    const handleToggle = (e) => {
+      if (hasChildren) {
+        e.preventDefault(); // Prevents navigation if submenu exists
+        setIsExpanded(!isExpanded);
+      }
+    };
+
+    return (
+      <li className="py-[13px] group font-chivo">
+        <div
+          className="flex justify-between items-center transition-all duration-200 hover:text-green-900 hover:translate-x-[2px] cursor-pointer"
+          onClick={handleToggle}
+        >
+          {/* <Link href={item.href} className="block w-full"> */}
+          <Link href="/" className="block w-full">
+            {item.label}
+          </Link>
+          {hasChildren && (
+            <span className="ml-2">
+              {isExpanded ? (
+                <ChevronUp className="w-[18px] h-[18px]" />
+              ) : (
+                <ChevronDown className="w-[18px] h-[18px]" />
+              )}
+            </span>
+          )}
+        </div>
+
+        {hasChildren && isExpanded && (
+          <div className="pl-5 pt-2">
+            <RecursiveMobileMenu items={item.children} />
+          </div>
+        )}
+      </li>
+    );
+  };
+
   return (
     <>
       <div class={`overlay ${menuOpen ? "show" : ""} `}></div>
@@ -159,6 +211,7 @@ const Header = () => {
 
         {/* --------for mobile---------- */}
         <div
+          style={{ marginTop: "2%" }}
           className={`burger-icon burger-icon-white menu__icon cursor-pointer ${
             menuOpen ? "burger-close" : ""
           } burger-visible-mobile`}
@@ -169,7 +222,7 @@ const Header = () => {
           <span className="burger-icon-bottom" />
         </div>
 
-        <nav
+        {/* <nav
           className={`fixed top-0 right-0 bg-white flex flex-col h-screen nav-shadow overflow-y-scroll nav-mobile transition-all duration-200 w-[380px] z-[100] ${
             menuOpen ? "" : "opacity-0 pointer-events-none"
           }  `}
@@ -260,6 +313,43 @@ const Header = () => {
               <Link className="text-green-900" href="http://alithemes.com">
                 &nbsp;AliThemes
               </Link>
+            </div>
+          </div>
+        </nav> */}
+
+        <nav
+          className={`fixed  top-0 right-0 bg-white flex flex-col h-screen nav-shadow overflow-y-scroll nav-mobile transition-all duration-200 w-[380px] z-[100] ${
+            menuOpen ? "" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="flex items-center border-b p-[20px] lg:p-[26px] gap-[10px] border-[#F2F4F7]">
+            <img
+              className="logo z-50 w-[120px] md:w-[101px] lg:w-[122px] xl:w-[139px]"
+              src="/assets/img/sodag.svg"
+              alt="logo image"
+            />
+          </div>
+
+          <div className="p-[30px]">
+            <RecursiveMobileMenu items={HEADER_SLUG} />
+
+            {/* You can keep this part as is */}
+            {/* <div className="mt-5 border-t border-b border-gray-100 pb-5 mb-[25px] pt-[30px]">
+              <p className="font-bold text-heading-6 mb-[10px]">Your Account</p>
+              <ul className="text-[15px]">
+                <li className="py-[13px]">
+                  <Link
+                    className="transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]"
+                    href="/"
+                  >
+                    Profile
+                  </Link>
+                </li>
+              </ul>
+            </div> */}
+            <div className="text-gray-400 font-chivo text-[13px]">
+              Copyright 2025 © InstaCertify
+              <br />
             </div>
           </div>
         </nav>

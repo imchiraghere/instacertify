@@ -10,7 +10,7 @@ const Location = () => {
       style={{
         // padding: "70px 12px",
         paddingTop: "70px",
-        marginTop: "70px",
+        // marginTop: "40px",
         boxSizing: "border-box",
       }}
     >
