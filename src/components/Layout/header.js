@@ -211,7 +211,7 @@ const Header = () => {
 
         {/* --------for mobile---------- */}
         <div
-          style={{ marginTop: "2%" }}
+          style={{ marginTop: menuOpen && "2%" }}
           className={`burger-icon burger-icon-white menu__icon cursor-pointer ${
             menuOpen ? "burger-close" : ""
           } burger-visible-mobile`}
