@@ -62,7 +62,7 @@ const IndustryCard = () => {
           {Object.entries(INDUSTRY_THEMES).map(([industry, theme], index) => {
             const IconComponent = industryIcons[industry];
             const width = `calc(${100 / columns}% - 5rem)`;
-            console.log("WDITHHH :", width);
+          
 
             return (
               <div

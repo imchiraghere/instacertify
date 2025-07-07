@@ -11,10 +11,10 @@ const WhyTrust = ({ onOpen }) => {
     <>
       <div className="px-[12px] md:px-[36px] mt-[70px] xl:px-0">
         <div className="text-center">
-          <h2 className="font-bold font-chivo mx-auto text-[28px] md:text-[40px] leading-[44px] md:text-[40px] md:leading-[40px] text-gray-900 mb-5 md:mb-[30px] max-w-[725px]">
+          <h2 className="heading">
             See why we are trusted the world over
           </h2>
-          <p className="md:text-lead-md text-gray-600 mx-auto max-w-[976px]">
+          <p className="subtext">
             From secure digital certifications to seamless verification
             processes, Instacertify empowers organizations globally with
             trusted, tamper-proof credentials. Discover why educational
