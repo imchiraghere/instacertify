@@ -2,7 +2,7 @@ import AnimatedButton from "../AnimatedButton";
 
 const ContactForm = () => {
   return (
-    <div className="bg-gray-100 relative p-[40px] md:pt-[91px] md:pr-[98px] md:pb-[86px] md:pl-[92px] mt-[150px] rounded-[58px]">
+    <div className="bg-gray-100 relative p-[40px] md:pt-[91px] md:pr-[98px] md:pb-[86px] md:pl-[92px] mt-[70px] rounded-[58px]">
       <div className="mx-auto relative max-w-[1320px]">
         <img
           className="absolute right-0 hidden lg:block md:block max-w-[129px] top-[-50px]"

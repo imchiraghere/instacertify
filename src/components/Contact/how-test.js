@@ -5,16 +5,16 @@ const HowTest = () => {
   return (
     <div
       style={{
-        minHeight: "100vh",
+        // minHeight: "100vh",
         // background:
         //   "linear-gradient(135deg, #065175 0%, #0a7ba8 50%, #ec691f 100%)",
-        padding: "60px 20px",
+        padding: "50px 20px",
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     >
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         {/* Header Section */}
-        <div style={{ textAlign: "center", marginBottom: "50px" }}>
+        <div style={{ textAlign: "center" }}>
           <h2 className="font-bold font-chivo text-[28px] leading-[32px] md:text-heading-2 mb-[22px]">
             HOW CAN WE ASSIST YOU TODAY?
           </h2>

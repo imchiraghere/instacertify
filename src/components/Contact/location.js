@@ -9,9 +9,10 @@ const Location = () => {
     <div
       style={{
         // padding: "70px 12px",
-        paddingTop: "70px",
+        paddingTop: "40px",
         // marginTop: "40px",
         boxSizing: "border-box",
+        marginBottom: "8%",
       }}
     >
       {/* Heading */}
@@ -72,18 +73,34 @@ const Location = () => {
               transform: hovered === index ? "translateY(-3px)" : "none",
             }}
           >
-            <Image
-              src="/assets/images/icons/icon-resources.svg"
-              width={50}
-              height={50}
-              alt="icon"
+            <div
               style={{
-                width: "50px",
-                height: "50px",
-                objectFit: "cover",
-                marginRight: "15px",
+                width: "45px",
+                height: "45px",
+                backgroundColor: "#f1f1f1",
+                padding: "5%",
+                borderRadius: 50,
+                margin: "2%",
               }}
-            />
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="orange"
+                stroke="currentColor"
+                // stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-map-pin-house-icon lucide-map-pin-house"
+              >
+                <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
+                <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
+                <path d="M18 22v-3" />
+                <circle cx="10" cy="10" r="3" />
+              </svg>
+            </div>
             <div>
               <h3
                 style={{

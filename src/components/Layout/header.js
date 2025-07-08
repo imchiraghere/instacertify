@@ -162,8 +162,12 @@ const Header = () => {
           className="flex justify-between items-center transition-all duration-200 hover:text-green-900 hover:translate-x-[2px] cursor-pointer"
           onClick={handleToggle}
         >
-          {/* <Link href={item.href} className="block w-full"> */}
-          <Link href="/" className="block w-full">
+          {/* <Link href="/" className="block w-full"> */}
+          <Link
+            href={item.href}
+            onClick={() => setMenuOpen(false)}
+            className="block w-full"
+          >
             {item.label}
           </Link>
           {hasChildren && (
@@ -347,7 +351,7 @@ const Header = () => {
                 </li>
               </ul>
             </div> */}
-            <div className="text-gray-400 font-chivo text-[13px]">
+            <div className="text-gray-400 font-chivo flex items-center justify-center text-[13px] mt-[50px]">
               Copyright 2025 © InstaCertify
               <br />
             </div>

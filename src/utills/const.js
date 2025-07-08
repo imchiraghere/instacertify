@@ -25,7 +25,8 @@ export const HEADER_SLUG = [
       },
       {
         label: "Asia Pacific",
-        href: "/certification/asia-pacific",
+        href: "/",
+        // href: "/certification/asia-pacific",
         children: [
           { label: "Asean", href: "/certification/asia-pacific/asean" },
           {
@@ -35,7 +36,8 @@ export const HEADER_SLUG = [
           { label: "China", href: "/certification/asia-pacific/china" },
           {
             label: "India",
-            href: "/certification/asia-pacific/india",
+            href: "/",
+            // href: "/certification/asia-pacific/india",
             children: [
               {
                 label: "ATEX/PESO",
@@ -47,7 +49,8 @@ export const HEADER_SLUG = [
               },
               {
                 label: "Bureau of Indian Standards (BIS)",
-                href: "/certification/asia-pacific/india/bis",
+                href: "/",
+                // href: "/certification/asia-pacific/india/bis",
                 children: [
                   {
                     label: "BIS CRS",
@@ -65,7 +68,8 @@ export const HEADER_SLUG = [
               },
               {
                 label: "EPR",
-                href: "/certification/asia-pacific/india/epr",
+                href: "/",
+                // href: "/certification/asia-pacific/india/epr",
                 children: [
                   {
                     label: "Battery Waste Management",
@@ -87,7 +91,8 @@ export const HEADER_SLUG = [
               },
               {
                 label: "Food & D",
-                href: "/certification/asia-pacific/india/food-d",
+                href: "/",
+                // href: "/certification/asia-pacific/india/food-d",
                 children: [
                   {
                     label: "CDSCO Cosmetics",
@@ -109,7 +114,8 @@ export const HEADER_SLUG = [
               },
               {
                 label: "Legal Metrology",
-                href: "/certification/asia-pacific/india/legal-metrology",
+                href: "/",
+                // href: "/certification/asia-pacific/india/legal-metrology",
                 children: [
                   {
                     label: "LMPC",
@@ -141,69 +147,88 @@ export const HEADER_SLUG = [
         children: [
           {
             label: "Africa",
-            href: "/certification/emea/africa",
+            href: "/",
+            // href: "/certification/emea/africa",
             children: [
               { label: "Egypt", href: "/certification/emea/africa/egypt" },
-              { label: "Kenya/KEBS", href: "/certification/emea/africa/kenya" },
+              {
+                label: "Kenya/KEBS",
+                href: "/",
+                // href: "/certification/emea/africa/kenya"
+              },
               {
                 label: "South Africa/CASSA",
-                href: "/certification/emea/africa/south-africa/cassa",
+                href: "/",
+                // href: "/certification/emea/africa/south-africa/cassa",
               },
               {
                 label: "South Africa/NRCS",
-                href: "/certification/emea/africa/south-africa/nrcs",
+                href: "/",
+                // href: "/certification/emea/africa/south-africa/nrcs",
               },
               {
                 label: "South Africa/SABS",
-                href: "/certification/emea/africa/south-africa/sabs",
+                href: "/",
+                // href: "/certification/emea/africa/south-africa/sabs",
               },
             ],
           },
           {
             label: "Eurasia",
-            href: "/certification/emea/eurasia",
+            href: "/",
+            // href: "/certification/emea/eurasia",
           },
           {
             label: "Europe",
-            href: "/certification/emea/europe",
+            href: "/",
+            // href: "/certification/emea/europe",
           },
           {
             label: "Middle East",
-            href: "/certification/emea/middle-east",
+            href: "/",
+            // href: "/certification/emea/middle-east",
             children: [
               {
                 label: "GMARK",
-                href: "/certification/emea/middle-east/gmark",
+                href: "/",
+                // href: "/certification/emea/middle-east/gmark",
                 children: [
                   {
                     label: "GMAR LVD",
-                    href: "/certification/emea/middle-east/gmark/gmar-lvd",
+                    href: "/",
+                    // href: "/certification/emea/middle-east/gmark/gmar-lvd",
                   },
                   {
                     label: "GMAR Toy",
-                    href: "/certification/emea/middle-east/gmark/gmar-toy",
+                    href: "/",
+                    // href: "/certification/emea/middle-east/gmark/gmar-toy",
                   },
                 ],
               },
               {
                 label: "SASO SABER",
-                href: "/certification/emea/middle-east/saso-saber",
+                href: "/",
+                // href: "/certification/emea/middle-east/saso-saber",
               },
               {
                 label: "SASO/IECEE Registration",
-                href: "/certification/emea/middle-east/saso-ieee",
+                href: "/",
+                // href: "/certification/emea/middle-east/saso-ieee",
               },
               {
                 label: "SFDA",
-                href: "/certification/emea/middle-east/sfda",
+                href: "/",
+                // href: "/certification/emea/middle-east/sfda",
                 children: [
                   {
                     label: "Cosmetic",
-                    href: "/certification/emea/middle-east/sfda/cosmetic",
+                    href: "/",
+                    // href: "/certification/emea/middle-east/sfda/cosmetic",
                   },
                   {
                     label: "Food",
-                    href: "/certification/emea/middle-east/sfda/food",
+                    href: "/",
+                    // href: "/certification/emea/middle-east/sfda/food",
                   },
                 ],
               },
@@ -213,11 +238,13 @@ export const HEADER_SLUG = [
       },
       {
         label: "Global",
-        href: "/certification/global",
+        href: "/",
+        // href: "/certification/global",
         children: [
           {
             label: "IMEI Registration",
-            href: "/certification/global/imei-registration",
+            href: "/",
+            // href: "/certification/global/imei-registration",
           },
         ],
       },
@@ -228,22 +255,22 @@ export const HEADER_SLUG = [
     label: "Product Testing",
     href: "/",
     children: [
-      { label: "Chemicals", href: "/blog-1.html" },
+      { label: "Chemicals", href: "/" },
       {
         label: "Electronics & Electricals",
-        href: "/blog-1.html",
+        href: "/",
         children: [
-          { label: "EMC Testing", href: "/emc" },
-          { label: "Environmental Testing", href: "/blog-1.html" },
-          { label: "Product Safety Testing", href: "/blog-1.html" },
-          { label: "Radio Testing", href: "/blog-1.html" },
+          { label: "EMC Testing", href: "/" },
+          { label: "Environmental Testing", href: "/" },
+          { label: "Product Safety Testing", href: "/" },
+          { label: "Radio Testing", href: "/" },
         ],
       },
-      { label: "Food & Water", href: "/blog-1.html" },
-      { label: "Lightning", href: "/blog-1.html" },
-      { label: "MSDS", href: "/blog-1.html" },
-      { label: "REACH", href: "/blog-1.html" },
-      { label: "ROHS", href: "/blog-1.html" },
+      { label: "Food & Water", href: "/" },
+      { label: "Lightning", href: "/" },
+      { label: "MSDS", href: "/" },
+      { label: "REACH", href: "/" },
+      { label: "ROHS", href: "/" },
     ],
   },
   {
@@ -252,15 +279,15 @@ export const HEADER_SLUG = [
     children: [
       {
         label: "Industry Events",
-        href: "/about-1.html",
+        href: "/",
       },
       {
         label: "News",
-        href: "/about-2.html",
+        href: "/",
       },
       {
         label: "Standards",
-        href: "/about-2.html",
+        href: "/",
       },
     ],
   },
@@ -463,8 +490,6 @@ export const HAPPY_CUSTOMER_DATA = [
       "Insta Certify Services has been an invaluable partner in ensuring our products meet industry standards. Their expertise in testing and certification is unmatched, and their team has been incredibly supportive throughout the entire process. We highly recommend them for anyone seeking reliable certification solutions. ",
     borderClass: "border-bg-10",
   },
-
-
 ];
 
 export const NEWS_DATA = [
