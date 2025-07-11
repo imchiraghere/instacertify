@@ -3418,7 +3418,7 @@ background-color: #ccc;
 }
 
 /* Icon Items */
-.icon-item {
+.icon-item2 {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -3436,7 +3436,7 @@ background-color: #ccc;
 }
 
 .icon-box {
-  width: 5rem;
+  width: 5rem  ;
   height: 5rem;
   background-color: white;
   border-radius: 1rem;

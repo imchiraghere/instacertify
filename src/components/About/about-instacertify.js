@@ -87,21 +87,21 @@ const AboutInstacertify = () => {
               {/* Icons Animation */}
               <div className="icons-grid">
                 <div className="icons-column">
-                  <div className="icon-item animate-float ">
+                  <div sty className="icon-item2 animate-float ">
                     <div className="icon-box">
                       <Search className="w-10 h-10 icon-blue" />
                     </div>
                     <p className="icon-label">Testing</p>
                   </div>
 
-                  <div className="icon-item ml-offset animate-float ">
+                  <div className="icon-item2 ml-offset animate-float ">
                     <div className="icon-box">
                       <Award className="w-10 h-10 icon-orange" />
                     </div>
                     <p className="icon-label">Certification</p>
                   </div>
 
-                  <div className="icon-item animate-float ">
+                  <div className="icon-item2 animate-float ">
                     <div className="icon-box">
                       <CheckCircle className="w-10 h-10 icon-green" />
                     </div>
@@ -110,21 +110,21 @@ const AboutInstacertify = () => {
                 </div>
 
                 <div className="icons-column icons-column-offset">
-                  <div className="icon-item animate-float ">
+                  <div className="icon-item2 animate-float ">
                     <div className="icon-box">
                       <Globe className="w-10 h-10 icon-purple" />
                     </div>
                     <p className="icon-label">Global</p>
                   </div>
 
-                  <div className="icon-item mr-offset animate-float ">
+                  <div className="icon-item2 mr-offset animate-float ">
                     <div className="icon-box">
                       <Users className="w-10 h-10 icon-indigo" />
                     </div>
                     <p className="icon-label">Consultancy</p>
                   </div>
 
-                  <div className="icon-item animate-float ">
+                  <div className="icon-item2 animate-float ">
                     <div className="icon-box ">
                       <TrendingUp className="w-10 h-10 icon-teal" />
                     </div>
